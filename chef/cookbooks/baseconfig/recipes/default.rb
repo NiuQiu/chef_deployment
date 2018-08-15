@@ -21,7 +21,7 @@ execute 'ntp_restart' do
 end
 
 execute 'postgresql_create' do
-  command 'echo "CREATE USER postgres with PASSWORD \'admin\'; CREATE DATABASE cmpt470; GRANT ALL PRIVILEGES ON DATABASE cmpt470 TO semi;" | sudo -u postgres psql'
+  command 'echo "CREATE USER semi with PASSWORD \'admin\'; CREATE DATABASE cmpt470; GRANT ALL PRIVILEGES ON DATABASE cmpt470 TO semi;" | sudo -u postgres psql'
   ignore_failure true
 end
 
@@ -48,8 +48,6 @@ end
 			# INSERT INTO orders(customer, drink) values(\'Andrew\', \'water\');
 			# INSERT INTO orders(customer, drink) values(\'Bill\', \'tea\');
 			# INSERT INTO orders(customer, drink) values(\'Avery\', \'milk\');" | sudo -u postgres psql'
-  
+
   # ignore_failure false
 # end
-
-

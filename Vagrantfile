@@ -30,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--uartmode1", "disconnected"] # speed up boot https://bugs.launchpad.net/cloud-images/+bug/1627844
     #vb.gui = true
   end
-  
+
   config.vm.provision "shell", inline: <<-SHELL
 	# Add Java PPA
 	sudo add-apt-repository ppa:webupd8team/java -y
@@ -41,12 +41,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	/bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections
 	# Install Java
 	apt-get -y install oracle-java8-installer
-	
+
 	green='\033[0;32m'
 	nc='\033[0m'
 	echo -e "installation Java ${green}successful${nc}"
 	echo ""
-	
+
 	# install tomcat
 	echo "install tomcat....."
 	sudo apt-get install -y apache2
@@ -58,9 +58,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	sudo apt-get install tomcat8-examples
 	echo -e "install tomcat8 ${green}successful${nc}"
 	echo ""
-	
+
   SHELL
-  
+
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
@@ -70,7 +70,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #chef.channel = "stable"
     #chef.version = "12.10.24"
   end
-  
+
   config.vm.provision "shell", inline: <<-SHELL
 	green='\033[0;32m'
 	nc='\033[0m'

@@ -3,7 +3,7 @@ $(function(){
 	var url = 'http://192.168.33.101:8080/order/rest/restaurant/';
 	var restName = "Uli's Restaurant";
 	var getUrl = "info/"+ restName;
-	var postUrl = 'reserve'; 
+	var postUrl = 'reserve';
 
 	var $hours = $('#hours');
 	var $addr = $('#addr');
@@ -17,7 +17,7 @@ $(function(){
 		}else{
 			$('#currentRes').addClass('visible');
 			$('#helper').addClass('visible');
-		}	
+		}
 	});
 
 	$('.close').on('click', function(){
@@ -40,9 +40,9 @@ $(function(){
 		success: function(response){
 			var business = response.hours;
 			var contact = response.contact;
-			
+
 			$.each(business, function(i, info){
-				$row = $('<tr>' + 
+				$row = $('<tr>' +
 				'<td>' + info.Day + ':</td>' +
 				'<td>' + info.OpenHr +' - ' + info.CloseHr +'</td>' +
 				'<tr/>');
@@ -157,11 +157,11 @@ $(function(){
 			customer:{
 				fname: $('#fname').val(),
 				lname: $('#lname').val(),
-				phone: $('#pnumber').val(),	
+				phone: $('#pnumber').val(),
 			},
 			table:{
 				time: $('#time').val(),
-				seats: $('#seats').val()	
+				seats: $('#seats').val()
 			}
 		}
 		$.ajax({
@@ -182,7 +182,7 @@ $(function(){
 		})
 		.done(function(){
 			$('#postForReserve.visible').removeClass('visible');
-			$('#returnMsg').append('<img class="showPic" src="../resource/check.png">');
+			$('#returnMsg').append('<img class="showPic" src="./resource/check.png">');
 			$('#returnMsg').append('<p>' + msg + '</p>');
 			$('#returnMsg').addClass('visible');
 			// setTimeout(function(){
@@ -195,12 +195,12 @@ $(function(){
 			// 	$('#overlay').removeClass('visible');
 			// 	$('#returnMsg').empty().removeClass('visible');
 			// }, 2000);
-			
-			
+
+
 		})
 		.fail(function(){
 			$('#postForReserve.visible').removeClass('visible');
-			$('#returnMsg').append('<img class="showPic" src="../resource/error.png">');
+			$('#returnMsg').append('<img class="showPic" src="./resource/error.png">');
 			$('#returnMsg').append('<p>' + msg + ': reservation is failed.</p>');
 			$('#returnMsg').addClass('visible');
 		});
@@ -208,4 +208,3 @@ $(function(){
 
 
 });
-
