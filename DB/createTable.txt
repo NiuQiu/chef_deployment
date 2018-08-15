@@ -1,0 +1,46 @@
+CREATE TABLE restaurant (
+	restaurant_id SERIAL UNIQUE PRIMARY KEY,
+	restaurant_name varchar(40) NOT NULL UNIQUE
+);
+
+CREATE TABLE restaurant_info (
+	restaurant_id integer PRIMARY KEY REFERENCES restaurant(restaurant_id),
+	phone varchar(20), 
+	address varchar(50) 
+);
+
+CREATE TABLE restaurant_hour (
+	open_day varchar(20), 
+	restaurant_id integer REFERENCES restaurant(restaurant_id),
+	open_hr varchar(20),
+	close_hr varchar(20),
+	PRIMARY KEY(open_day, restaurant_id)
+);
+
+CREATE TABLE customer(
+	cid SERIAL PRIMARY KEY,
+	fname varchar(50) NOT NULL,
+	lname varchar(50) NOT NULL,
+	phone varchar(20) NOT NULL
+);
+
+CREATE TABLE dining_table(
+	tid SERIAL PRIMARY KEY,
+	seats integer
+);
+
+CREATE TABLE duration(
+	tid integer REFERENCES dining_table(tid),
+	booking varchar(60),
+	isBooked BOOLEAN,
+	PRIMARY KEY(tid, booking)
+);
+
+CREATE TABLE reserve(
+	cid integer REFERENCES customer(cid),
+	tid integer REFERENCES dining_table(tid)
+);
+
+
+
+

@@ -1,0 +1,40 @@
+TRUNCATE TABLE restaurant_info CASCADE;
+TRUNCATE TABLE restaurant_hour;
+TRUNCATE TABLE restaurant;
+
+
+TRUNCATE TABLE reserve CASCADE;
+TRUNCATE TABLE duration CASCADE;
+TRUNCATE TABLE dining_table;
+TRUNCATE TABLE customer;
+
+INSERT INTO restaurant(restaurant_name) values('Uli''s Restaurant');
+
+INSERT INTO restaurant_info(restaurant_id, phone, address) values(
+	(SELECT restaurant_id FROM restaurant WHERE restaurant_name ='Uli''s Restaurant'), 
+	'(604) 538-9373', 
+	'15023 Marine Dr, White Rock, BC V4B 1C3'
+);
+
+INSERT INTO restaurant_hour(open_day, restaurant_id, open_hr, close_hr)
+values
+('Monday', (SELECT restaurant_id FROM restaurant WHERE restaurant_name ='Uli''s Restaurant'), '11:30', '21:00'),
+('Tuesday', (SELECT restaurant_id FROM restaurant WHERE restaurant_name ='Uli''s Restaurant'), 'close', 'close'),
+('Wednesday', (SELECT restaurant_id FROM restaurant WHERE restaurant_name ='Uli''s Restaurant'), '11:30', '21:00'),
+('Thursday', (SELECT restaurant_id FROM restaurant WHERE restaurant_name ='Uli''s Restaurant'), '11:30', '21:00'),
+('Friday', (SELECT restaurant_id FROM restaurant WHERE restaurant_name ='Uli''s Restaurant'), '11:30', '23:00'),
+('Saturday', (SELECT restaurant_id FROM restaurant WHERE restaurant_name ='Uli''s Restaurant'), '10:30', '23:00'),
+('Sunday', (SELECT restaurant_id FROM restaurant WHERE restaurant_name ='Uli''s Restaurant'), '10:30', '22:00');
+
+INSERT INTO dining_table(seats) VALUES
+(4),
+(4),
+(4),
+(4),
+(6),
+(6),
+(6),
+(12),
+(12),
+(15);	
+

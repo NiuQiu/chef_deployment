@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Orders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="./CSS/style 1.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script src="./scripts/main.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#" id="restaurant_name"></a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="ModifyMenu.html">Menu</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="ViewOrders.html">Orders</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="LoginFreeOrder.html">Create Order</a>
+        </li>
+    </ul>
+</nav>
+
+<!---------------------------
+  start of reserve section
+---------------------------->
+
+<div class="reserve-main-content" >
+    <div class="gap">
+        
+    </div>
+
+    <div class="poster">
+
+        <div class="wrapper">
+            <img class="myimg" src="./resource/vege.jpg" />
+            <img class="myimg" src="./resource/black-vege.jpg" />
+            <img class="myimg" src="./resource/grill.jpg" />
+        </div>
+    </div>
+     <!-- background screen -->
+    <div id="overlay"></div>
+    <div id="helper"></div>
+
+    <!-- restaurant button section -->
+    <section class="reservation">
+        <!-- restaurant information section -->
+        <div class="function">
+            <div class="info">
+                <label><img src="./resource/info.png" /></label>
+                <label>Restaurant Infomation</label>
+            </div>
+            
+
+            <!-- restaurant popup page -->
+            <div id="currentRes">
+                <span class="close">×</span>
+                <div id="resInfo">
+                    <h2>Uli’s Restaurant</h2>
+
+                    <div id="openInfo">
+                        <table id="hours">
+                            <tr>
+                                <th>Opening hours:</th>
+                            </tr>
+                        </table>
+
+                        <div id="contact">
+                            <p class="subtitle">Address:</p>
+                            <p id="addr">                           
+                            </p>
+                            <p class="subtitle">Phone Number:</p>
+                            <p id="tel">                              
+                            </p>
+                        </div>
+                    </div>
+                    <div id="addressMap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2616.425884364089!
+                        2d-122.80820648412642!3d49.02150649716128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485c39d61ef5913%3A0x3e5b2d2998e89619!2sUli&#39;
+                        s+Restaurant!5e0!3m2!1sen!2sca!4v1531805657961" width="380" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                    </div>
+                </div>
+            </div>
+             
+        </div>
+
+        <!-- reservation section -->
+        <div class="function">
+            <div class="res">
+                <label><img src="./resource/reserve.png" /></label>
+                <label>Reservation</label>
+            </div>
+            <!-- reservation popup page -->
+            <div id="booking">
+                <span id="bookingClose">×</span>
+                
+                <div id="postForReserve">
+                    <h3>Daily Reservation</h3>
+                    <label class="reserve-info" for="fname">First Name </label>
+                    <span id="fname-err" style="display: inline; color:red; margin-left: 5px;"></span>
+                    <input type="text" id="fname" name="firstname" placeholder="First name..">
+
+                    <label class="reserve-info" for="lname">Last Name</label>
+                    <span id="lname-err" style="display: inline; color:red; margin-left: 5px;"></span>
+                    <input type="text" id="lname" name="lastname" placeholder="Last name..">
+
+                    <label class="reserve-info" for="pnumber">Phone Number</label>
+                    <span id="pnumber-err" style="display: inline; color:red; margin-left: 5px;"></span>
+                    <input type="text" id="pnumber" name="phone" placeholder="Phone number..">
+
+                    <label for="time">Time</label>
+                    <select id="time" name="time">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option>11:00 am ~ 12:30 pm</option>
+                        <option>12:00 am ~ 13:30 pm</option>
+                        <option>17:00 pm ~ 18:30 pm</option>
+                        <option>18:30 pm ~ 20:00 pm</option>
+                    </select>
+
+                    <label class="reserve-info" for="seats">Seats available</label>
+                    <select id="seats" name="seats">
+                        
+                    </select>
+
+                    <div id="sub">
+                        <input type="submit" value="Submit">
+                        <input type="button" value="Cancel">
+                    </div>  
+                </div>
+
+                <div id="returnMsg"></div>  
+            </div>
+        </div>
+        <!-- end of reservation popup page -->
+
+
+            <!-- reservation section -->
+        
+
+
+        <div class="function">
+            <!-- reservation section -->
+            
+                <div class="more">
+                    <!-- <label><img src="./resource/reserve.png" /></label> -->
+                    <label>Comming soon...</label>
+                </div>
+            <!-- end of more_function div -->
+        </div>
+    </section>
+</div>
+
+<footer>
+    &copy; Team semi-colon 2018. All rights reserved.
+</footer>
+</body>
+</html>
